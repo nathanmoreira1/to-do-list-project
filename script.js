@@ -38,14 +38,12 @@ const saveTasks = () => {
   let itens = document.querySelector(".to-do-list-itens").children
   let itens_array = [...itens]
   itens_array.map((item) => {
-    if([...item.children][1].value !== '') {
-      saved_informations.push(
-        {
-          img: [...item.children][0].children[0].getAttribute("src"),
-          text: [...item.children][1].value
-        }
-      )
-    }
+    saved_informations.push(
+      {
+        img: [...item.children][0].children[0].getAttribute("src"),
+        text: [...item.children][1].value
+      }
+    )
   })
   // Precisamos filtrar as informações do array "saved_informations"
   let unique_saved_informations = new Map();
@@ -74,6 +72,8 @@ const loadPastItens = () => {
       father.append(child);
     })
   }
+  // Como, no HTML, já existe o molde do primeiro item adicionado, ele se "repete". Dessa maneira, precisamos excluí-lo
+  father.children[0].remove()
 }
 
 loadPastItens()
