@@ -74,9 +74,6 @@ const loadPastItens = () => {
       father.append(child);
     })
   }
-
-  // Como, no HTML, já existe o molde do primeiro item adicionado, ele se "repete". Dessa maneira, precisamos excluí-lo
-  father.children[0].remove()
 }
 
 loadPastItens()
